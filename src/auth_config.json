@@ -1,5 +1,6 @@
 {
   "domain": "dev-5r1vbx-r.us.auth0.com",
   "clientId": "KaYwo6QSlfrYbvY44oyHhfYbr7LAmmIS",
-  "audience": "https://dev-5r1vbx-r.us.auth0.com/api/v2/"
+  "audience": "https://dev-5r1vbx-r.us.auth0.com/api/v2/",
+  "scope": "openid profile email read:messages"
 }

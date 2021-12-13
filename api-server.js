@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
+const { requiredScopes } = require('express-oauth2-jwt-bearer');
 const authConfig = require("./src/auth_config.json");
 
 const app = express();
@@ -11,6 +12,7 @@ const app = express();
 const port = process.env.API_PORT || 3001;
 const appPort = process.env.SERVER_PORT || 3000;
 const appOrigin = authConfig.appOrigin || `http://localhost:${appPort}`;
+const checkScopes = requiredScopes('read:messages');
 
 if (
   !authConfig.domain ||
@@ -43,7 +45,7 @@ const checkJwt = jwt({
 
 app.get("/api/external", checkJwt, (req, res) => {
   res.send({
-    msg: "Your access token was successfully validated!",
+    msg: "Seu acesso foi validado com sucesso! Você tem acesso aos recursos!",
   });
 });
 

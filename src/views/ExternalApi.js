@@ -89,40 +89,37 @@ export const ExternalApiComponent = () => {
       <div className="mb-5">
         {state.error === "consent_required" && (
           <Alert color="warning">
-            You need to{" "}
+            Você precisa{" "}
             <a
               href="#/"
               class="alert-link"
               onClick={(e) => handle(e, handleConsent)}
             >
-              consent to get access to users api
+              obter consenso para acessar a API do usuário
             </a>
           </Alert>
         )}
 
         {state.error === "login_required" && (
           <Alert color="warning">
-            You need to{" "}
+            Você precisa{" "}
             <a
               href="#/"
               class="alert-link"
               onClick={(e) => handle(e, handleLoginAgain)}
             >
-              log in again
+              logar novamente
             </a>
           </Alert>
         )}
 
-        <h1>External API</h1>
+        <h1>API Externa</h1>
         <p className="lead">
-          Ping an external API by clicking the button below.
+          Chame uma API external clicando no botão abaixo.
         </p>
 
         <p>
-          This will call a local API on port 3001 that would have been started
-          if you run <code>npm run dev</code>. An access token is sent as part
-          of the request's `Authorization` header and the API will validate it
-          using the API's audience value.
+          Uma API será chamada, um access_token será enviado como parte de request dentro de um Header e a API irá validar utilizando a URL de audience que aponta para o Authorization Server.
         </p>
 
         {!audience && (
@@ -177,7 +174,7 @@ export const ExternalApiComponent = () => {
           onClick={callApi}
           disabled={!audience}
         >
-          Ping API
+          Ping API autorizada a qualquer um autenticado.
         </Button>
       </div>
 
